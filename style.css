@@ -1,0 +1,63 @@
+/*  First we start with Font from fonts.google.com Roboto400 and bold 700 just use import link */
+@import url('https://fonts.googleapis.com/css2?family=Muli&display=swap');
+
+
+/* first we add below to the whole , so when adding a padding/border does not effect on the width of it */
+*{
+    box-sizing: border-box;
+}
+/* Then we apply the fonts to the body */
+body {
+    font-family: 'Muli',sans-serif;
+    display: flex;/*with this everything will go horizontal*/
+    /* flex-direction: column; with this everthing will o vertical now */
+    align-items: center; /* will bring everything in the center horiontally*/
+    justify-content: center;/* if the height of item is specified this will bring everything in the middle vertically */
+    height:100vh;
+    overflow: hidden;/* it doent not show scroll bars by default*/
+    margin:0;
+}
+.container{
+    display: flex;
+    width: 90vw;
+}
+
+.panel{
+    background-size:auto 100% ;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 80vh;
+    border-radius: 50px;
+    color:#fff;
+    cursor: pointer;
+    flex: 0.5;
+    margin: 10px;
+    position: relative;
+    transition: flex 0.7s ease-in;
+}
+.panel h3{
+    font-size: 24px;
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    margin: 0;
+    opacity: 0;
+}
+
+.panel.active{
+    flex: 5;
+}
+.panel.active h3{
+    opacity: 1;
+    transition: opacity 0.3s ease-in 0.4s;
+}
+
+@media(max-width:480px){
+    .container{
+        width:100vw;
+    }
+    .panel:nth-of-type(4),
+    .panel:nth-of-type(5){
+        display: none;
+    }
+}
